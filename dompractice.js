@@ -1,3 +1,13 @@
+/*  Author: C. Tejeda
+    Date: 10.27.2023
+    Purpose: Create an index.html and dompractice.js. Connect the js file.
+             Inside the body of your element write the code below to create a bunch of divs using Emmett shortcut.
+             For example, div#frenchfry
+             There should be a parent div which 6 children and each children has 3 children :)
+             The names of the divs should contain the following class names.
+              parent > child > grandchild */
+
+
 // ===== JavaScript =====
 // Change the title of your webpage to 'DOM Practice' using textContent and without assigning an id or a class name
 const title = document.querySelector("title")
@@ -31,7 +41,7 @@ for(let child of children){
     child.style.height = "50px"
     child.style.margin = "30px 0px"
     child.style.textAlign = "center"
-    child.style.color = "#0D635"
+    child.style.color = "#E0D635"
 }
 
 // Access the grandchildren give them the following properties
@@ -39,7 +49,6 @@ for(let child of children){
 // height of 7px
 // text that indicates index starting at 1
 // margin top of 10px
-
 const grandchildren = document.querySelectorAll(".grandchild")
 for(let i=0; i<grandchildren.length; i++){
     let grandchild = grandchildren[i]
@@ -50,17 +59,15 @@ for(let i=0; i<grandchildren.length; i++){
     grandchild.textContent = i+1
 }
 
-
-
-
-
-
-
 // Grandma's favorite
 // Access the 14th grandchild and give them a font color of pink and italicize
 // use array index to access the child and use 'children' to access the grandchild.
 // Look at MDN DOM children property
 // Assign a text color purple to the 14th grandchild
+const favoriteGrandChild = document.querySelectorAll(".child")[4].children[1]
+favoriteGrandChild.style.color = "pink"
+favoriteGrandChild.style.color = "purple"
+favoriteGrandChild.style.fontStyle = "italic"
 
 
 // The JavaScript of Grandchildren
@@ -74,8 +81,26 @@ for(let i=0; i<grandchildren.length; i++){
 // position absolute
 // top 30px
 // left 500px
+let blackSheep = get9thChild()
+blackSheep.parentElement.style.position = "relative"
 
-
+function get9thChild(){
+    for(let child of children)
+    {
+        for(let grandchild of child.children) 
+        {
+            if(grandchild.textContent === "9")
+            return grandchild
+        }
+    }
+}
+blackSheep.style.color = "black"
+blackSheep.style.fontSize = "9rem"
+blackSheep.style.textAlign = "right"
+blackSheep.style.transform = "scale(-1, 1)"
+blackSheep.style.position = "absolute"
+blackSheep.style.top = "30px"
+blackSheep.style.left = "500px"
 
 
 
